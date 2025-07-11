@@ -1,0 +1,14 @@
+Portfolio Website with AI Integration
+A modern portfolio website built with React.js and Node.js, featuring an AI-powered chat interface using Azure OpenAI and LangChain. The system uses vector storage (FAISS) for efficient similarity search and context retrieval.
+- Technologies: React.js, Node.js, Azure OpenAI, LangChain, FAISS
+- Features: AI chat assistant, vector-based search, responsive design
+
+E-Commerce Platform
+A full-stack e-commerce solution with secure payment integration and real-time inventory management.
+- Technologies: MERN Stack (MongoDB, Express.js, React.js, Node.js)
+- Features: User authentication, payment processing, order tracking
+
+Task Management System
+A collaborative task management application with real-time updates and team collaboration features.
+- Technologies: React.js, Node.js, Socket.io, MongoDB
+- Features: Real-time updates, team workspaces, task prioritization

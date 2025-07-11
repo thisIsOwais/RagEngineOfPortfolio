@@ -1,0 +1,31 @@
+Technical Skills
+
+Programming Languages:
+- JavaScript/TypeScript: Advanced proficiency in modern ES6+ features, async programming, and TypeScript
+- Python: Strong knowledge of data structures, algorithms, and backend development
+- Java: Solid understanding of object-oriented programming principles
+
+Frontend Development:
+- React.js: Extensive experience with hooks, context API, and state management
+- HTML5/CSS3: Responsive design, CSS preprocessors (SASS/LESS)
+- Next.js: Server-side rendering and static site generation
+
+Backend Development:
+- Node.js: RESTful API development, Express.js framework
+- Database Systems: MongoDB, PostgreSQL, Redis
+- API Integration: REST, GraphQL, WebSocket
+
+Cloud & DevOps:
+- Azure: Cloud services, Azure OpenAI integration
+- Docker: Containerization and deployment
+- Git: Version control and collaboration
+
+AI & Machine Learning:
+- LangChain: Vector stores, embeddings, and chat models
+- Natural Language Processing: Text processing and analysis
+- Vector Databases: FAISS for similarity search
+
+Soft Skills:
+- Problem Solving: Strong analytical and debugging skills
+- Communication: Effective technical documentation and team collaboration
+- Project Management: Agile methodologies and sprint planning

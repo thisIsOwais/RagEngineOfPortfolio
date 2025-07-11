@@ -1,0 +1,25 @@
+{
+  "type": "module",
+  "name": "portfolio-assistatn",
+  "version": "1.0.0",
+  "description": "give response to questions of based on your profile",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "npx nodemon app.js",
+    "start": "node app.js"
+  },
+  "author": "MOHD OWAIS",
+  "license": "ISC",
+  "dependencies": {
+    "@langchain/community": "^0.3.45",
+    "@langchain/core": "^0.3.57",
+    "@langchain/openai": "^0.5.11",
+    "@langchain/pinecone": "^0.2.0",
+    "@pinecone-database/pinecone": "^5.0.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.5.0",
+    "express": "^5.1.0",
+    "langchain": "^0.3.27"
+  }
+}

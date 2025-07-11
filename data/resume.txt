@@ -1,0 +1,72 @@
+MOHD OWAIS ANSARI
+Email: owaismohd857@gmail.com | Phone: +91-8218422403
+Portfolio: portfolio-sand-psi-82.vercel.app
+GitHub: github.com/18OWAIS
+LinkedIn: linkedin.com/in/owais-mohd-ansar
+
+EDUCATION
+National Institute of Technology (NIT) Warangal
+Bachelor of Technology – Metallurgical and Materials Engineering
+Graduated: 2025 | CGPA: 7.74/10
+
+SKILLS
+Languages: JavaScript, TypeScript, SQL, Python
+
+Frontend: React.js, Next.js, Tailwind CSS, HTML, CSS
+
+Backend: Node.js, Express.js, NestJS, PostgreSQL, MongoDB
+
+DevOps & Cloud: AWS (Lambda, S3, DynamoDB, API Gateway), Vercel, Docker
+
+Tools & Other: Git, GitHub, Stripe, Clerk, Postman, Swagger, JWT, Prisma, Redis
+
+AI/LLM: OpenAI API, LangChain, RAG, Vector Embeddings, Prompt Engineering
+
+EXPERIENCE
+Software Engineering Intern
+Tripolymath (May 2023 – Aug 2023)
+
+Built a serverless e-commerce backend using AWS Lambda, API Gateway, and PostgreSQL.
+
+Developed role-based access APIs with NestJS, DTO validation, and JWT authentication.
+
+Integrated Stripe for payments, Twilio for OTP, and followed clean code practices with reusable modules and error handling.
+
+Implemented DB indexing, migration scripts, and performance-optimized queries.
+
+Backend Intern
+OSH Finance (Jan 2023 – Mar 2023)
+
+Created APIs for Aadhaar-based KYC using the Eko API.
+
+Worked on JWT-secured authentication, input validation, and integrating UPI-based payment flow.
+
+PROJECTS
+Genius AI SaaS
+
+AI-powered SaaS application allowing users to generate blogs, code, images, etc. using OpenAI APIs.
+
+Tech Stack: Next.js, TypeScript, Stripe, Clerk, Prisma, MongoDB
+
+GitHub: Genius AI SaaS
+
+AI Portfolio Assistant (In Progress)
+
+Building a custom assistant that uses RAG, LangChain, and vector embeddings to interact with portfolio visitors and answer questions about my experience and work.
+
+Chrome Extension – Workflow Booster
+
+Built a Chrome Extension to automate personal task management and shortcuts using local storage and content scripts.
+
+E-commerce Microservices Platform
+
+Converted a monolithic e-commerce app into microservices with authentication, product, and order modules.
+
+Used Node.js, PostgreSQL, and Docker with separate containers.
+
+ACHIEVEMENTS
+Winner, AlgoUniversity x JobOverflow DSA Contest
+
+Finalist in institute hackathons focused on real-time app building
+
+Published open-source starter templates for full-stack apps
