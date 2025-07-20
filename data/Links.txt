@@ -1,0 +1,13 @@
+const socialMediaLinks = {
+  github1: "https://github.com/18owais",
+  github2: "https://github.com/thisisowais",
+  linkedin: "https://www.linkedin.com/in/owais-mohd-ansar/",
+  gmail: "owaismohd857@gmail.com",
+  linkTree: "https://linktr.ee/MOHD_OWAIS_ANSARI",
+  stackoverflow: "https://stackoverflow.com/users/20510654/mohd-owais-ansari",
+  geeksforgeeks:"https://www.geeksforgeeks.org/user/owaismodi5r/",
+  codingninjas:"https://www.codingninjas.com/studio/profile/59a69a25-19d9-47a9-bc5d-790b80f08441",
+  leetcode:"https://leetcode.com/u/Mohd_Owais__ansari/",
+  hackerrank:"https://www.hackerrank.com/profile/MsAnsari",
+  linkTree:"https://linktr.ee/MOHD_OWAIS_ANSARI",
+};

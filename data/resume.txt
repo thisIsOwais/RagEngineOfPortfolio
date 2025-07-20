@@ -1,72 +1,75 @@
-MOHD OWAIS ANSARI
-Email: owaismohd857@gmail.com | Phone: +91-8218422403
-Portfolio: portfolio-sand-psi-82.vercel.app
-GitHub: github.com/18OWAIS
-LinkedIn: linkedin.com/in/owais-mohd-ansar
+Mohd Owais Ansari
+ Roll No.: 21MMB0A39
+ B.Tech
+ Metallurgical and Materials Engineering
+ National Institute Of Technology, Warangal
 
-EDUCATION
-National Institute of Technology (NIT) Warangal
-Bachelor of Technology – Metallurgical and Materials Engineering
-Graduated: 2025 | CGPA: 7.74/10
+ owaismohd857@gmail.com
+ mo21mmb0a39@student.nitw.ac.in
+ GitHub Profile 1
+ GitHub Profile 2
+ LinkedIn Profile
+ My Portfolio
+ 
+  EXPERIENCE
+ SDE INTERN AT TRIPOLYMATH
+ (E-commerce Serverless Application)
+ MAY-2024- AUGUST-2024
+ • Built Bscalable serverless microservices using Node.js, PostgreSQL, AWS Lambda, and API Gateway.
+ • Used SNS + SQS fanout with filter policies to decouple and trigger order workflows asynchronously.
+ • Ensured idempotent order placement using custom keys to avoid duplicate charges or webhook retries.
+ • Implemented product-level locking to prevent race conditions during simultaneous checkouts.
+ • Adapted seamlessly to a fast-paced, dynamic work environment, ensuring high-quality outcomes.
+ BACKEND DEVELOPER INTERN AT OSH
+ (Custom Software Development: Tailored solutions to address your unique business challenges.)
+ APRIL-2024- MAY-2024
+ • Developed a Backend System for Aeps(Adhar enabled payment system), facilitate onBoard Merchants.
+ • Implemented JWT authentication system to enhance data security, contributing to a reliable backend architecture.
+ • Designed RESTful APIs to ensure efficient communication between the client and server.
+ • Collaborated with developers to design and implement web features.
 
-SKILLS
-Languages: JavaScript, TypeScript, SQL, Python
+ Education
+ National Institute of Technology, Warangal
+ B.Tech in Metallurgical and Materials Engineering
+ Shri Guru Ram Rai Public School, Deoband
+ CBSE,UP
+ 2025
+ CGPA: 7.74
+ 2020
+ Percentage: 97%
+ Personal Projects
+ GhostMe– AI-Powered Personal Customized Assistant
+ (Real-Time Voice Chatbot with Streaming RAG and TTS)
+ JUNE 2025– ONGOING
+ • Built an interactive AI assistant using Node.js, React, and Azure Ai foundry, enables real-time voice interaction
+ • Implemented contextual RAG pipeline using custom resume/portfolio data.
+ • Enabled real-time voice streaming via LLM token chunking with Azure TTS, SSE, and Blob API.
+ • Built smooth audio playback with Web Speech API, base64 decoding, and frontend buffering.
+ • GitHub: 
+Source Code
+ Node.js Microservices Architecture for Online Shop (E-Commerce)
+ (Demonstration Monolithic to Microservices Architecture)
+ • Led the transformation of a monolithic architecture to microservices architecture.
+ JUNE 2024- SEPT 2024
+ • Utilizing Technologies such as Node.js, MongoDB, Nginx, AMQP, and Amazon Elastic Beanstalk.
+ • Implemented Nginx Proxy for efficient request redirection within the microservices environment.
+ • Utilized AMQPLIB for seamless inter-service communication.
+ • GITHUB LINK: Source Code
 
-Frontend: React.js, Next.js, Tailwind CSS, HTML, CSS
+ Technical Skills and Interests
+ Languages: C++ | Javascipt | Python | HTML | CSS | Typescript | SQL
+ Developer Tools: VS CODE | Git and Github | MongoDB Compass |Postman
+ Frameworks & Library: React.Js | Node.JS | Express.JS | Next.JS | Langchain | RAG | VectorEmbedding
+ Cloud/Databases:MongoDB | AWS | Pinecone | Queue Services (Amqplib)| Postgresql | Supabase
+ Soft Skills: Problem Solving | Critical Thinking | Communication | Teamwork | Leadership | Resilience | Collaboration
+ Coursework: Data Structures and Algorithm, Object Oriented Programming, AI & Machine Learning
+ Areas of Interest:Data structure and Algorithm,Problem Solving, Web-Development, building AI powered application
+ Position Of Responsibility
+ • Organized and led college hackathons, fostering innovation and collaboration among participants while managing
+ event logistics and mentoring teams to develop impactful projects.
+ • Led our team as captain to victory in the College Premier League, demonstrating strong leadership, strategic
+ planning, and teamwork under competitive conditions.
 
-Backend: Node.js, Express.js, NestJS, PostgreSQL, MongoDB
-
-DevOps & Cloud: AWS (Lambda, S3, DynamoDB, API Gateway), Vercel, Docker
-
-Tools & Other: Git, GitHub, Stripe, Clerk, Postman, Swagger, JWT, Prisma, Redis
-
-AI/LLM: OpenAI API, LangChain, RAG, Vector Embeddings, Prompt Engineering
-
-EXPERIENCE
-Software Engineering Intern
-Tripolymath (May 2023 – Aug 2023)
-
-Built a serverless e-commerce backend using AWS Lambda, API Gateway, and PostgreSQL.
-
-Developed role-based access APIs with NestJS, DTO validation, and JWT authentication.
-
-Integrated Stripe for payments, Twilio for OTP, and followed clean code practices with reusable modules and error handling.
-
-Implemented DB indexing, migration scripts, and performance-optimized queries.
-
-Backend Intern
-OSH Finance (Jan 2023 – Mar 2023)
-
-Created APIs for Aadhaar-based KYC using the Eko API.
-
-Worked on JWT-secured authentication, input validation, and integrating UPI-based payment flow.
-
-PROJECTS
-Genius AI SaaS
-
-AI-powered SaaS application allowing users to generate blogs, code, images, etc. using OpenAI APIs.
-
-Tech Stack: Next.js, TypeScript, Stripe, Clerk, Prisma, MongoDB
-
-GitHub: Genius AI SaaS
-
-AI Portfolio Assistant (In Progress)
-
-Building a custom assistant that uses RAG, LangChain, and vector embeddings to interact with portfolio visitors and answer questions about my experience and work.
-
-Chrome Extension – Workflow Booster
-
-Built a Chrome Extension to automate personal task management and shortcuts using local storage and content scripts.
-
-E-commerce Microservices Platform
-
-Converted a monolithic e-commerce app into microservices with authentication, product, and order modules.
-
-Used Node.js, PostgreSQL, and Docker with separate containers.
-
-ACHIEVEMENTS
-Winner, AlgoUniversity x JobOverflow DSA Contest
-
-Finalist in institute hackathons focused on real-time app building
-
-Published open-source starter templates for full-stack apps
+ • BUILDING: optimizing ai assitant for my portfolio 
+codebase
+ • REMARK: To know more about my coding journey plese click on my My Portfoli

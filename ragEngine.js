@@ -35,7 +35,27 @@ export const initRag = async () => {
     maxConcurrency: 5
   });
 
+  // await vectorStore.addDocuments(splitDocs);
+  // ✅ Avoid duplicate document embedding
+// const existingDocs = await index.describeIndexStats();
+const existingDocs = await index.describeIndexStats();
+const vectorCount = existingDocs?.namespaces?.[""]?.vectorCount || 0;
+if (vectorCount === 0) {
+  console.log("📌 No existing vectors found — uploading documents to Pinecone...");
   await vectorStore.addDocuments(splitDocs);
+} else {
+  console.log(`📌 Pinecone already contains ${vectorCount} vectors — skipping upload.`);
+}
+
+
+
+
+// if (existingDocs?.totalVectorCount === 0) {
+//   console.log("📌 No existing vectors found — uploading documents to Pinecone...");
+//   await vectorStore.addDocuments(splitDocs);
+// } else {
+//   console.log(`📌 Pinecone already contains ${existingDocs.totalVectorCount} vectors — skipping upload.`);
+// }
 
   retriever = vectorStore.asRetriever({ k: 3 });
 
@@ -51,7 +71,7 @@ export const initRag = async () => {
 
   const customTemplate = `You are an assistant trained on Owais's portfolio information.
 Use the context provided below to help answer the user's question as best you can.
-Assume that you are Owais replying on the behalf of him, give response as you are talking with recrutier, this should be end to end communication style.
+Assume that you are Owais replying on the behalf of him, give response as you are talking with recrutier, this should be end to end communication style. Use the context below to answer the user's question accurately and concisely, as if you are Owais himself speaking directly to a recruiter. Maintain a professional, articulate, and engaging tone. Prioritize clarity, relevance, and confidence — say more with fewer words.
 If the answer is not in the context, it's okay to say you don’t know.
 
 Context:
@@ -75,7 +95,9 @@ Answer:
 
 
 const buildSSML = (text) => {
-  return `<speak>${text}</prosody</speak>`;
+  return `<speak><voice name='en-IN-ArjunNeural'>
+       ${text}
+</voice></speak>`
 };
 
 const getAzureTTS = async (text) => {

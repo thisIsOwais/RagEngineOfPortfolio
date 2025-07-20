@@ -3,7 +3,7 @@ Technical Skills
 Programming Languages:
 - JavaScript/TypeScript: Advanced proficiency in modern ES6+ features, async programming, and TypeScript
 - Python: Strong knowledge of data structures, algorithms, and backend development
-- Java: Solid understanding of object-oriented programming principles
+- C++: Solid understanding of object-oriented programming principles
 
 Frontend Development:
 - React.js: Extensive experience with hooks, context API, and state management
@@ -23,7 +23,7 @@ Cloud & DevOps:
 AI & Machine Learning:
 - LangChain: Vector stores, embeddings, and chat models
 - Natural Language Processing: Text processing and analysis
-- Vector Databases: FAISS for similarity search
+- Vector Databases: Pinecone
 
 Soft Skills:
 - Problem Solving: Strong analytical and debugging skills
