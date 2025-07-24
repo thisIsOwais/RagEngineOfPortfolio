@@ -132,42 +132,95 @@ const getAzureTTS = async (text) => {
   }
 };
 
+// export const getRagResponse = async (userQuery, res) => {
+//   if (!retriever || !ragChain) throw new Error("RAG system not initialized");
+
+//   const contextDocs = await retriever.invoke(userQuery);
+
+//   //streaming response chunk by chunk
+
+//   let buffer = '';
+//   for await (const chunk of ragChain._streamIterator({ question: userQuery, context: contextDocs })) {
+//     buffer += chunk;
+//     console.log("Chunk:", chunk);
+
+
+//     // Sentence boundary detection (you can improve this with better NLP later)
+//     if (/[.?!]\s*$/.test(buffer)) {
+//       const sentence = buffer.trim();
+//       buffer = '';
+
+//       console.log("Sentence:", sentence);
+//       // 🔊 Call Azure TTS
+
+//       console.log("Calling getAzureTTS.................");
+//       const audioBuffer = await getAzureTTS(sentence); // Return raw MP3 buffer
+
+//       // Convert buffer to base64
+//       const audioBase64 = Buffer.from(audioBuffer).toString('base64');
+
+//       // 🔁 Send to frontend
+//       console.log("Sending audio to frontend....................");
+//       res.write(`data: ${JSON.stringify({ text: sentence, audio: audioBase64 })}\n\n`);
+//     }
+//   }
+
+//   res.write(`event: done\ndata: {}\n\n`);
+//   res.end();
+
+// };
+
+
+
 export const getRagResponse = async (userQuery, res) => {
-  if (!retriever || !ragChain) throw new Error("RAG system not initialized");
+  try {
+    if (!retriever || !ragChain) throw new Error("RAG system not initialized");
 
-  const contextDocs = await retriever.invoke(userQuery);
+    const contextDocs = await retriever.invoke(userQuery);
+    const stream = ragChain._streamIterator({ question: userQuery, context: contextDocs });
 
-  //streaming response chunk by chunk
+    let buffer = '';
 
-  let buffer = '';
-  for await (const chunk of ragChain._streamIterator({ question: userQuery, context: contextDocs })) {
-    buffer += chunk;
-    console.log("Chunk:", chunk);
+    for await (const chunk of stream) {
+      if (!chunk.trim()) continue; // skip empty chunks like `\n` or whitespace
 
+      buffer += chunk;
 
-    // Sentence boundary detection (you can improve this with better NLP later)
-    if (/[.?!]\s*$/.test(buffer)) {
-      const sentence = buffer.trim();
-      buffer = '';
-
-      console.log("Sentence:", sentence);
-      // 🔊 Call Azure TTS
-
-      console.log("Calling getAzureTTS.................");
-      const audioBuffer = await getAzureTTS(sentence); // Return raw MP3 buffer
-
-      // Convert buffer to base64
-      const audioBase64 = Buffer.from(audioBuffer).toString('base64');
-
-      // 🔁 Send to frontend
-      console.log("Sending audio to frontend....................");
-      res.write(`data: ${JSON.stringify({ text: sentence, audio: audioBase64 })}\n\n`);
+      if (isSentenceComplete(buffer)) {
+        const sentence = flushBuffer(buffer);
+        buffer = '';
+        await streamSentence(sentence, res);
+      }
     }
+
+    // Final fallback: if anything left in buffer, stream it even without punctuation
+    if (buffer.trim()) {
+      const sentence = flushBuffer(buffer);
+      await streamSentence(sentence, res);
+    }
+
+    res.write(`event: done\ndata: {}\n\n`);
+    res.end();
+  } catch (error) {
+    console.error("RAG Response Error:", error);
+    res.status(500).json({ error: "Something went wrong while generating the response." });
   }
-
-  res.write(`event: done\ndata: {}\n\n`);
-  res.end();
-
 };
 
+// Accepts . ? ! followed by whitespace or end of string
+function isSentenceComplete(text) {
+  return /[.?!]['")\]]?\s*$/.test(text);
+}
 
+function flushBuffer(text) {
+  return text.trim();
+}
+
+async function streamSentence(sentence, res) {
+  if (!sentence) return;
+
+  const audioBuffer = await getAzureTTS(sentence);
+  const audioBase64 = Buffer.from(audioBuffer).toString("base64");
+
+  res.write(`data: ${JSON.stringify({ text: sentence, audio: audioBase64 })}\n\n`);
+}
