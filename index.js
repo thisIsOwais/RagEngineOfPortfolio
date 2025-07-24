@@ -11,10 +11,10 @@ const port = process.env.PORT || 5000;
 app.use(cors({
   origin: [
     "http://localhost:3000",
-    "https://portfolio-sand-psi-82.vercel.app/"
+    "https://portfolio-sand-psi-82.vercel.app/*"
   ]
 }));
-app.options("*", cors()); // to handle preflight OPTIONS
+// app.options("/*", cors({ origin: true })); // to handle preflight OPTIONS
 
 app.use(express.json());
 
