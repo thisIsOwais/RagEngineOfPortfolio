@@ -8,13 +8,21 @@ dotenv.config();
 const app = express();
 const port = process.env.PORT || 5000;
 
-app.use(cors({
-  origin: [
-    "http://localhost:3000",
-    "https://portfolio-sand-psi-82.vercel.app/*"
-  ]
-}));
-// app.options("/*", cors({ origin: true })); // to handle preflight OPTIONS
+const corsOpts = {
+  origin: '*',
+
+  methods: [
+    'GET',
+    'POST',
+  ],
+
+  allowedHeaders: [
+    'Content-Type',
+  ],
+};
+
+app.use(cors(corsOpts));
+
 
 app.use(express.json());
 
