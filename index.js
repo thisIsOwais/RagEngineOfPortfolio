@@ -14,6 +14,8 @@ app.use(cors({
     "https://portfolio-sand-psi-82.vercel.app/"
   ]
 }));
+app.options("*", cors()); // to handle preflight OPTIONS
+
 app.use(express.json());
 
 app.get("/", (req, res) => {
