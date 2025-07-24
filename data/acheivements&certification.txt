@@ -1,0 +1,124 @@
+const achievementSection = {
+  title: emoji("Achievements And Certifications 🏆 "),
+  subtitle:
+    "Achievements, Certifications, Award Letters and Some Cool Stuff that I have done !",
+
+  achievementsCards: [
+    {
+      title: "Graph Contest By The Job Overflow By AlgoUniversity",
+      subtitle:
+        "I achieved a top 3 rank in the Graph Theory Coding Contest hosted by theJobOverflow and AlgoUniversity, organized by Candidate Master Manas Kumar and CEO of theJobOverflow and AlgoUniversity. ",
+      image: require("./assets/images/graph.png"),
+      imageAlt: "Google Code-In Logo",
+      footerLink: [
+        {
+          name: "Certification",
+          url: "https://drive.google.com/file/d/1SlKrbEwoJSJpAoETBfufKAvrBHBB_6pQ/view?usp=sharing"
+        },
+      ]
+    },
+    {
+      title: "TRINIT HACKATHON",
+      subtitle:
+        "Developed a web application with my team that allows users/students to upload topics they studied, automatically generating quizzes to help them assess their preparation level. The application features a user-friendly interface, real-time updates, and secure authentication using Firebase.. My team work on this project earned me a top 3 rank in the hackathon, highlighting my ability to create innovative solutions with a strong focus on user experience and functionality.",
+      image: require("./assets/images/trinit.jpg"),
+      imageAlt: "Google Assistant Action Logo",
+      footerLink: [
+        {
+          name: "Source Code",
+          url: "https://github.com/thisIsOwais/Web-Exploration-Recorder-Extension"
+        },
+        {
+          name: "Certification",
+          url: "https://drive.google.com/file/d/1oVTYgABJxEnhWcv5N0auKXRM0MsYjnf7/view?usp=sharing"
+        }
+        ]
+      },
+    {
+      title: "INTERNSHIP AT OSH",
+      subtitle:
+        "Developed a secure and reliable backend system for an Aadhaar-enabled payment platform, enabling merchant onboarding and achieving over 99.9% uptime. Implemented JWT encryption for enhanced data security and designed RESTful APIs for seamless client-server communication. Collaborated with the team to launch features that improved user satisfaction by 20%.",
+      image: require("./assets/images/backIntern.png"),
+      imageAlt: "Google Assistant Action Logo",
+      footerLink: [
+        // {
+        //   name: "Source Code",
+        //   url: "https://github.com/thisIsOwais/Web-Exploration-Recorder-Extension"
+        // },
+        {
+          name: "Certification",
+          url: "https://drive.google.com/file/d/1o9dThv-qKh-ZvJrk1a3xpCC6I7Gr-65B/view?usp=sharing"
+        }
+  ]
+    },
+    {
+      title: "TRAINING AT NULLCLASS",
+      subtitle:
+        "Completed a comprehensive training program at NullClass, where I gained hands-on experience in developing full-stack applications. The program equipped me with in-depth knowledge of modern web technologies, including frontend and backend development, database management, and API integration. Successfully earned a certification, showcasing my proficiency and commitment to building robust, end-to-end solutions.",
+      image: require("./assets/images/trainNullclass.png"),
+      imageAlt: "Google Assistant Action Logo",
+      footerLink: [
+        // {
+        //   name: "Source Code",
+        //   url: "https://github.com/thisIsOwais/Web-Exploration-Recorder-Extension"
+        // },
+        {
+          name: "Certification",
+          url: "https://drive.google.com/file/d/1LsTEkXhGutqEefgP1CxhKgdYpf9u_yeL/view?usp=sharing"
+        }
+  ]
+    },
+    {
+      title: "NAMASTE REACT",
+      subtitle:
+        "Completed an in-depth React course, mastering its core concepts, component lifecycle, and efficient state management. Gained hands-on experience in performance optimization, virtual DOM, and advanced patterns like Redux for state management. Explored best practices to build scalable, high-performance applications with modern React techniques.",
+        image: require("./assets/images/reactCertificate.png"),
+      imageAlt: "Google Assistant Action Logo",
+      footerLink: [
+        {
+          name: "Certification",
+          url: "https://drive.google.com/file/d/1LsTEkXhGutqEefgP1CxhKgdYpf9u_yeL/view?usp=sharing"
+        }
+  ]
+    },
+    {
+      title: "NAMASTE NODE.JS",
+      subtitle: `  
+      - Completed an in-depth exploration of Node.js core concepts.\n  
+      - Gained a strong understanding of event loop, asynchronous processing, and non-blocking I/O.\n  
+      - Explored Libuv and Chrome V8 engine to understand how Node.js handles concurrency.\n  
+      - Built modular and scalable backend systems using best practices.\n  
+      - Optimized performance through efficient event-driven architecture.  
+      `,
+        image: require("./assets/images/node.jsCertificate.png"),
+      imageAlt: "Google Assistant Action Logo",
+      footerLink: [
+        {
+          name: "Certification",
+          url: "https://drive.google.com/file/d/1cZuzGdwITYhYtg6zRfOVwIvCcMC2E4-p/view?usp=sharing"
+        }
+  ]
+    },
+
+  ],
+  display: true // Set false to hide this section, defaults to true
+};
+
+// Blogs Section
+
+const blogSection = {
+  title: "Blogs",
+  subtitle:
+    "With Love for Developing cool stuff, I love to write and teach others what I have learnt.",
+  displayMediumBlogs: "true", // Set true to display fetched medium blogs instead of hardcoded ones
+  blogs: [
+    {
+      url: "https://stackoverflow.com/questions/71913692/module-not-found-error-cant-resolve-react-dom-client/76654890?noredirect=1#comment135171044_76654890",
+      title: "Error Solving contribution for react-dom-client",
+      description:
+        "React Dom Error Solving?"
+    },
+  ],
+  display: true // Set false to hide this section, defaults to true
+};
+
