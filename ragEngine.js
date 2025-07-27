@@ -7,8 +7,10 @@ import { PineconeStore } from "@langchain/pinecone";
 import { PromptTemplate } from "@langchain/core/prompts";
 import { StringOutputParser } from "@langchain/core/output_parsers";
 import { createStuffDocumentsChain } from "langchain/chains/combine_documents";
+import { logToFile } from "./logger.js";
 
 import dotenv from "dotenv";
+
 dotenv.config();
 
 let retriever, ragChain;
@@ -35,9 +37,6 @@ export const initRag = async () => {
     maxConcurrency: 5
   });
 
-  // await vectorStore.addDocuments(splitDocs);
-  // ✅ Avoid duplicate document embedding
-// const existingDocs = await index.describeIndexStats();
 const existingDocs = await index.describeIndexStats();
 const vectorCount = existingDocs?.namespaces?.[""]?.vectorCount || 0;
 if (vectorCount === 0) {
@@ -47,15 +46,6 @@ if (vectorCount === 0) {
   console.log(`📌 Pinecone already contains ${vectorCount} vectors — skipping upload.`);
 }
 
-
-
-
-// if (existingDocs?.totalVectorCount === 0) {
-//   console.log("📌 No existing vectors found — uploading documents to Pinecone...");
-//   await vectorStore.addDocuments(splitDocs);
-// } else {
-//   console.log(`📌 Pinecone already contains ${existingDocs.totalVectorCount} vectors — skipping upload.`);
-// }
 
   retriever = vectorStore.asRetriever({ k: 3 });
 
@@ -95,9 +85,7 @@ Answer:
 
 
 const buildSSML = (text) => {
-  return `<speak><voice name='en-IN-ArjunNeural'>
-       ${text}
-</voice></speak>`
+  return `<speak><prosody rate="medium">${text}</prosody></speak>`
 };
 
 const getAzureTTS = async (text) => {
@@ -132,52 +120,18 @@ const getAzureTTS = async (text) => {
   }
 };
 
-// export const getRagResponse = async (userQuery, res) => {
-//   if (!retriever || !ragChain) throw new Error("RAG system not initialized");
-
-//   const contextDocs = await retriever.invoke(userQuery);
-
-//   //streaming response chunk by chunk
-
-//   let buffer = '';
-//   for await (const chunk of ragChain._streamIterator({ question: userQuery, context: contextDocs })) {
-//     buffer += chunk;
-//     console.log("Chunk:", chunk);
 
 
-//     // Sentence boundary detection (you can improve this with better NLP later)
-//     if (/[.?!]\s*$/.test(buffer)) {
-//       const sentence = buffer.trim();
-//       buffer = '';
-
-//       console.log("Sentence:", sentence);
-//       // 🔊 Call Azure TTS
-
-//       console.log("Calling getAzureTTS.................");
-//       const audioBuffer = await getAzureTTS(sentence); // Return raw MP3 buffer
-
-//       // Convert buffer to base64
-//       const audioBase64 = Buffer.from(audioBuffer).toString('base64');
-
-//       // 🔁 Send to frontend
-//       console.log("Sending audio to frontend....................");
-//       res.write(`data: ${JSON.stringify({ text: sentence, audio: audioBase64 })}\n\n`);
-//     }
-//   }
-
-//   res.write(`event: done\ndata: {}\n\n`);
-//   res.end();
-
-// };
-
-
-
-export const getRagResponse = async (userQuery, res) => {
+export const getRagResponse = async (userQuery,name,email, res) => {
   try {
     if (!retriever || !ragChain) throw new Error("RAG system not initialized");
 
     const contextDocs = await retriever.invoke(userQuery);
     const stream = ragChain._streamIterator({ question: userQuery, context: contextDocs });
+
+    // Log user query details
+    // logToFile(`🔍 [USER-QUERY] 👤 ${name} | 📧 ${email} | 💬 "${userQuery}"`);
+    logToFile('query', { name, email, query: userQuery });
 
     let buffer = '';
 
@@ -193,6 +147,7 @@ export const getRagResponse = async (userQuery, res) => {
       }
     }
 
+    // verification
     // Final fallback: if anything left in buffer, stream it even without punctuation
     if (buffer.trim()) {
       const sentence = flushBuffer(buffer);
@@ -203,7 +158,9 @@ export const getRagResponse = async (userQuery, res) => {
     res.end();
   } catch (error) {
     console.error("RAG Response Error:", error);
-    res.status(500).json({ error: "Something went wrong while generating the response." });
+    // res.status(500).json({ error: "Something went wrong while generating the response." });
+    res.write(`event: error\ndata: ${JSON.stringify({ error: error.message })}\n\n`);
+    res.end(); // Properly close SSE stream
   }
 };
 
@@ -216,11 +173,17 @@ function flushBuffer(text) {
   return text.trim();
 }
 
+
 async function streamSentence(sentence, res) {
   if (!sentence) return;
 
   const audioBuffer = await getAzureTTS(sentence);
   const audioBase64 = Buffer.from(audioBuffer).toString("base64");
 
+    // ✅ Log to file
+    logToFile("answer",sentence);
+
+
   res.write(`data: ${JSON.stringify({ text: sentence, audio: audioBase64 })}\n\n`);
 }
+

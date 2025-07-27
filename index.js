@@ -2,7 +2,9 @@
 import express from 'express'
 import cors from "cors";
 import { initRag, getRagResponse } from "./ragEngine.js";
+import { logToFile } from "./logger.js";
 import dotenv from "dotenv";
+
 
 dotenv.config();
 const app = express();
@@ -34,8 +36,22 @@ app.get("/", (req, res) => {
 
 // API endpoint for asking questions
 app.post("/api/ask", async (req, res) => {
-    const query = req.body.query;
+    // const query = req.body.query;
+    const { query,name,emailTrimmed,key } = req.body;
+    console.log({query:query,name:name,email:emailTrimmed});
+
     if (!query) return res.status(400).end("Query is required");
+    if (!query) return res.status(400).end("Query is required");
+
+// logToFile(`///////////////////UserQuery///////////////\nusername: ${name}\nemail: ${emailTrimmed}\nquery: ${query}\nkey: ${key}\n`);
+
+    const isVerified = req.body.key === process.env.ONBOARDING_KEY;
+  
+    if (!isVerified) {
+      console.log("❌ Invalid key received"); //
+      return res.status(401).json({ success: false, message: "Invalid key" });
+    }
+    
     
     console.log("Received query:", query);
     res.setHeader("Content-Type", "text/event-stream");
@@ -45,7 +61,7 @@ app.post("/api/ask", async (req, res) => {
   
     try {
         console.log("Calling getRagResponse..."); //
-      await getRagResponse(query, res); // pass res into getRagResponse for streaming
+      await getRagResponse(query,name,emailTrimmed, res); // pass res into getRagResponse for streaming
     } catch (err) {
       console.error("❌ RAG error:", err.message);
       res.write(`event: error\ndata: ${JSON.stringify({ error: err.message })}\n\n`);
@@ -55,8 +71,16 @@ app.post("/api/ask", async (req, res) => {
   
   
   app.post("/api/onboard", (req, res) => {
-    const { key } = req.body;
-    console.log("Received key:", key); //
+    const { name,emailTrimmed,key } = req.body;
+
+    console.log("/////////////////////////////////////////////////////////////////////")
+    console.log("username:", name); //
+    console.log("email:", emailTrimmed); // 
+    console.log("/////////////////////////////////////////////////////////////////////");
+    
+    // logToFile(`///////////////////OnboardingUser///////////////\nusername: ${name}\nemail: ${emailTrimmed}\n`);
+    logToFile('onboarding', { name, emailTrimmed});
+
     if (!key) {
       return res.status(400).send("Key is required");
     }
