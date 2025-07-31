@@ -4,6 +4,9 @@
 
 GhostMe AI Assistant is an innovative RAG (Retrieval-Augmented Generation) based system that acts as an intelligent portfolio assistant. It combines advanced document retrieval with natural language generation to provide accurate, context-aware responses about professional experience and skills.
 
+##Frontend
+Link:[https://github.com/thisIsOwais/portfolio/tree/main/src/pages]
+
 ## 🌟 Key Features
 
 - **Intelligent RAG System**: Combines document retrieval with language model generation
